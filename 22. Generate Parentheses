@@ -1,0 +1,35 @@
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]
+
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        if n == 1:
+            return ["()"]
+            
+        process = ''
+        ans = []
+        self.getsolution(ans, n, n, process)
+        return ans
+        
+    def getsolution(self, ans, left, right, process):
+        
+        if not left and not right:
+            ans.append(process)
+            return ans
+            
+        if left > 0:
+            self.getsolution(ans, left - 1 , right, process + '(')
+            
+        if left < right:
+            self.getsolution(ans,left,right - 1 , process + ')')
+            
+3 key points for backtracking probelm: Choice, constraints, goal.
