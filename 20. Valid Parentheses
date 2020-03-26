@@ -6,6 +6,7 @@ Open brackets must be closed by the same type of brackets.
 Open brackets must be closed in the correct order.
 Note that an empty string is also considered valid.
 
+```python
 class Solution:
     def isValid(self, s: str) -> bool:
         
@@ -20,5 +21,6 @@ class Solution:
                 return False
             
         return stack == []
+```
  1. By using stack to store the paired parentheses and check if the stack is empty or if the left parentheses are matched.
  
